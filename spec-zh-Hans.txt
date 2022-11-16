@@ -1,14 +1,14 @@
 ---
-title: CommonMark Spec
+title: CommonMark 规范
 author: John MacFarlane
 version: '0.30'
 date: '2021-06-19'
 license: '[CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)'
 ...
 
-# Introduction
+# 引言
 
-## What is Markdown?
+## 什么是 Markdown？
 
 Markdown is a plain text format for writing structured documents,
 based on conventions for indicating formatting in email
@@ -100,7 +100,7 @@ to worry about indentation.  But the Markdown version is much easier
 to read.  The nesting of list items is apparent to the eye in the
 source, not just in the processed document.
 
-## Why is a spec needed?
+## 为什么需要一个规范？
 
 John Gruber's [canonical description of Markdown's
 syntax](http://daringfireball.net/projects/markdown/syntax)
@@ -253,7 +253,7 @@ renders differently on another (say, converting to docbook using
 pandoc).  To make matters worse, because nothing in Markdown counts
 as a "syntax error," the divergence often isn't discovered right away.
 
-## About this document
+## 关于本文档
 
 This document attempts to specify Markdown syntax unambiguously.
 It contains many examples with side-by-side Markdown and
@@ -287,9 +287,9 @@ HTML or CommonMark (which can then be converted into other formats).
 
 In the examples, the `→` character is used to represent tabs.
 
-# Preliminaries
+# 预备知识
 
-## Characters and lines
+## 字符与行
 
 Any sequence of [characters] is a valid CommonMark
 document.
@@ -341,7 +341,7 @@ A [Unicode punctuation character](@) is an [ASCII
 punctuation character] or anything in
 the general Unicode categories  `Pc`, `Pd`, `Pe`, `Pf`, `Pi`, `Po`, or `Ps`.
 
-## Tabs
+## 制表符
 
 Tabs in lines are not expanded to [spaces].  However,
 in contexts where spaces help to define block structure,
@@ -477,13 +477,13 @@ bar
 ````````````````````````````````
 
 
-## Insecure characters
+## 不安全字符
 
 For security reasons, the Unicode character `U+0000` must be replaced
 with the REPLACEMENT CHARACTER (`U+FFFD`).
 
 
-## Backslash escapes
+## 反斜杠转义
 
 Any ASCII punctuation character may be backslash-escaped:
 
@@ -621,7 +621,7 @@ foo
 ````````````````````````````````
 
 
-## Entity and numeric character references
+## 实体和数字字符引用
 
 Valid HTML entity references and numeric character references
 can be used in place of the corresponding Unicode character,
@@ -823,7 +823,7 @@ bar</p>
 
 
 
-# Blocks and inlines
+# 区块与内联
 
 We can think of a document as a sequence of
 [blocks](@)---structural elements like paragraphs, block
@@ -832,7 +832,7 @@ block quotes and list items) contain other blocks; others (like
 headings and paragraphs) contain [inline](@) content---text,
 links, emphasized text, images, code spans, and so on.
 
-## Precedence
+## 优先级
 
 Indicators of block structure always take precedence over indicators
 of inline structure.  So, for example, the following is a list with
@@ -858,19 +858,19 @@ step.  Note that the first step requires processing lines in sequence,
 but the second can be parallelized, since the inline parsing of
 one block element does not affect the inline parsing of any other.
 
-## Container blocks and leaf blocks
+## 容器块与叶子块
 
 We can divide blocks into two types:
 [container blocks](#container-blocks),
 which can contain other blocks, and [leaf blocks](#leaf-blocks),
 which cannot.
 
-# Leaf blocks
+# 叶子块
 
 This section describes the different kinds of leaf block that make up a
 Markdown document.
 
-## Thematic breaks
+## 主题转换
 
 A line consisting of optionally up to three spaces of indentation, followed by a
 sequence of three or more matching `-`, `_`, or `*` characters, each followed
@@ -1094,7 +1094,7 @@ If you want a thematic break in a list item, use a different bullet:
 ````````````````````````````````
 
 
-## ATX headings
+## ATX 标题
 
 An [ATX heading](@)
 consists of a string of characters, parsed as inline content, between an
@@ -1316,7 +1316,7 @@ ATX headings can be empty:
 ````````````````````````````````
 
 
-## Setext headings
+## Setext 标题
 
 A [setext heading](@) consists of one or more
 lines of text, not interrupted by a blank line, of which the first line does not
@@ -1732,7 +1732,7 @@ baz</p>
 ````````````````````````````````
 
 
-## Indented code blocks
+## 缩进代码块
 
 An [indented code block](@) is composed of one or more
 [indented chunks] separated by blank lines.
@@ -1932,7 +1932,7 @@ Trailing spaces or tabs are included in the code block's content:
 
 
 
-## Fenced code blocks
+## 围栏代码块
 
 A [code fence](@) is a sequence
 of at least three consecutive backtick characters (`` ` ``) or
@@ -2358,7 +2358,7 @@ Closing code fences cannot have [info strings]:
 
 
 
-## HTML blocks
+## HTML 块
 
 An [HTML block](@) is a group of lines that is treated
 as raw HTML (and will not be escaped in HTML output).
@@ -3157,7 +3157,7 @@ deleted.  The exception is inside `<pre>` tags, but as described
 [above][HTML blocks], raw HTML blocks starting with `<pre>`
 *can* contain blank lines.
 
-## Link reference definitions
+## 链接引用定义
 
 A [link reference definition](@)
 consists of a [link label], optionally preceded by up to three spaces of
@@ -3512,7 +3512,7 @@ are defined:
 ````````````````````````````````
 
 
-## Paragraphs
+## 段落
 
 A sequence of non-blank lines that cannot be interpreted as other
 kinds of blocks forms a [paragraph](@).
@@ -3622,7 +3622,7 @@ bbb</p>
 ````````````````````````````````
 
 
-## Blank lines
+## 空行
 
 [Blank lines] between block-level elements are ignored,
 except for the role they play in determining whether a [list]
@@ -3646,7 +3646,7 @@ aaa
 
 
 
-# Container blocks
+# 容器块
 
 A [container block](#container-blocks) is a block that has other
 blocks as its contents.  There are two basic kinds of container blocks:
@@ -3666,7 +3666,7 @@ to define the syntax, although it does not give a recipe for *parsing*
 these constructions.  (A recipe is provided below in the section entitled
 [A parsing strategy](#appendix-a-parsing-strategy).)
 
-## Block quotes
+## 区块引用
 
 A [block quote marker](@),
 optionally preceded by up to three spaces of indentation,
@@ -4095,7 +4095,7 @@ after the `>`:
 
 
 
-## List items
+## 列表项
 
 A [list marker](@) is a
 [bullet list marker] or an [ordered list marker].
@@ -5028,7 +5028,7 @@ baz</li>
 ````````````````````````````````
 
 
-### Motivation
+### 动机
 
 John Gruber's Markdown spec says the following about list items:
 
@@ -5214,7 +5214,7 @@ that in such cases, we require one space indentation from the list marker
 four-space rule in cases where the list marker plus its initial indentation
 takes four spaces (a common case), but diverge in other cases.
 
-## Lists
+## 列表
 
 A [list](@) is a sequence of one or more
 list items [of the same type].  The list items
@@ -5846,7 +5846,7 @@ Here the outer list is loose, the inner list tight:
 ````````````````````````````````
 
 
-# Inlines
+# 内联
 
 Inlines are parsed sequentially from the beginning of the character
 stream to the end (left to right, in left-to-right languages).
@@ -5863,7 +5863,7 @@ backtick.
 
 
 
-## Code spans
+## 行内代码
 
 A [backtick string](@)
 is a string of one or more backtick characters (`` ` ``) that is neither
@@ -6096,7 +6096,7 @@ closing backtick strings to be equal in length:
 ````````````````````````````````
 
 
-## Emphasis and strong emphasis
+## 着重与强调
 
 John Gruber's original [Markdown syntax
 description](http://daringfireball.net/projects/markdown/syntax#em) says:
@@ -7442,7 +7442,7 @@ __a<http://foo.bar/?q=__>
 
 
 
-## Links
+## 链接
 
 A link contains [link text] (the visible text), a [link destination]
 (the URI that is the link destination), and optionally a [link title].
@@ -8512,7 +8512,7 @@ is followed by a link label (even though `[bar]` is not defined):
 
 
 
-## Images
+## 图片
 
 Syntax for images is like the syntax for links, with one
 difference. Instead of [link text], we have an
@@ -8739,7 +8739,7 @@ If you want a link after a literal `!`, backslash-escape the
 ````````````````````````````````
 
 
-## Autolinks
+## 自动链接
 
 [Autolink](@)s are absolute URIs and email addresses inside
 `<` and `>`. They are parsed as links, with the URL or email address
@@ -8926,7 +8926,7 @@ foo@bar.example.com
 ````````````````````````````````
 
 
-## Raw HTML
+## 原生 HTML
 
 Text between `<` and `>` that looks like an HTML tag is parsed as a
 raw HTML tag and will be rendered in HTML without escaping.
@@ -9188,7 +9188,7 @@ foo <a href="\*">
 ````````````````````````````````
 
 
-## Hard line breaks
+## 硬换行
 
 A line ending (not in a code span or HTML tag) that is preceded
 by two or more spaces and does not occur at the end of a block
@@ -9338,7 +9338,7 @@ foo
 ````````````````````````````````
 
 
-## Soft line breaks
+## 软换行
 
 A regular line ending (not in a code span or HTML tag) that is not
 preceded by two or more spaces or a backslash is parsed as a
@@ -9373,7 +9373,7 @@ line ending or as a space.
 A renderer may also provide an option to render soft line breaks
 as hard line breaks.
 
-## Textual content
+## 文本内容
 
 Any characters not given an interpretation by the above rules will
 be parsed as plain textual content.
@@ -9403,12 +9403,12 @@ Multiple     spaces
 
 <!-- END TESTS -->
 
-# Appendix: A parsing strategy
+# 附录：一个解析策略
 
 In this appendix we describe some features of the parsing strategy
 used in the CommonMark reference implementations.
 
-## Overview
+## 概述
 
 Parsing has two phases:
 
@@ -9446,7 +9446,7 @@ marked by arrows:
              "aliquando id"
 ```
 
-## Phase 1: block structure
+## 阶段 1：区块结构
 
 Each line that is processed has an effect on this tree.  The line is
 analyzed and, depending on its contents, the document may be altered
@@ -9588,7 +9588,7 @@ We thus obtain the final tree:
              "aliquando id"
 ```
 
-## Phase 2: inline structure
+## 阶段 2：内联结构
 
 Once all of the input has been parsed, all open blocks are closed.
 
@@ -9619,7 +9619,7 @@ Notice how the [line ending] in the first paragraph has
 been parsed as a `softbreak`, and the asterisks in the first list item
 have become an `emph`.
 
-### An algorithm for parsing nested emphasis and links
+### 一种解析嵌套强调与链接的算法
 
 By far the trickiest part of inline parsing is handling emphasis,
 strong emphasis, links, and images.  This is done using the following
@@ -9649,7 +9649,7 @@ procedure (see below).
 When we hit the end of the input, we call the *process emphasis*
 procedure (see below), with `stack_bottom` = NULL.
 
-#### *look for link or image*
+#### *查找链接或图片*
 
 Starting at the top of the delimiter stack, we look backwards
 through the stack for an opening `[` or `![` delimiter.
@@ -9680,7 +9680,7 @@ through the stack for an opening `[` or `![` delimiter.
       `[` delimiters before the opening delimiter to *inactive*.  (This
       will prevent us from getting links within links.)
 
-#### *process emphasis*
+#### *处理强调*
 
 Parameter `stack_bottom` sets a lower bound to how far we
 descend in the [delimiter stack].  If it is NULL, we can
