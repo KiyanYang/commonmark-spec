@@ -581,29 +581,15 @@ foo
 
 ## 实体和数字字符引用
 
-Valid HTML entity references and numeric character references
-can be used in place of the corresponding Unicode character,
-with the following exceptions:
+可以使用有效的 HTML 实体引用和数字字符引用替代相应的 Unicode 字符，但以下情况除外：
 
-- Entity and character references are not recognized in code
-  blocks and code spans.
+- 在代码块和行内代码中的实体和字符引用无法被识别。
 
-- Entity and character references cannot stand in place of
-  special characters that define structural elements in
-  CommonMark.  For example, although `&#42;` can be used
-  in place of a literal `*` character, `&#42;` cannot replace
-  `*` in emphasis delimiters, bullet list markers, or thematic
-  breaks.
+- 实体和字符引用不能替代 CommonMark 中定义结构元素的特殊字符。例如，虽然 `&#42;` 可替代字面意义上的 `*` 字符，但是 `&#42;` 不能替代强调分隔符、无序列表标记或主题转换中的 `*`。
 
-Conforming CommonMark parsers need not store information about
-whether a particular character was represented in the source
-using a Unicode character or an entity reference.
+符合标准的 CommonMark 解析器不需要存储关于在源中使用 Unicode 字符还是实体引用来表示特定字符的信息。
 
-[Entity references](@) consist of `&` + any of the valid
-HTML5 entity names + `;`. The
-document <https://html.spec.whatwg.org/entities.json>
-is used as an authoritative source for the valid entity
-references and their corresponding code points.
+[实体引用](@)由 `&` + 任何有效的 HTML5 实体名称 + `;` 组成。文档 <https://html.spec.whatwg.org/entities.json> 是有效实体引用及其相应码位的权威来源。
 
 ```````````````````````````````` example
 &nbsp; &amp; &copy; &AElig; &Dcaron;
@@ -616,13 +602,7 @@ references and their corresponding code points.
 ````````````````````````````````
 
 
-[Decimal numeric character
-references](@)
-consist of `&#` + a string of 1--7 arabic digits + `;`. A
-numeric character reference is parsed as the corresponding
-Unicode character. Invalid Unicode code points will be replaced by
-the REPLACEMENT CHARACTER (`U+FFFD`).  For security reasons,
-the code point `U+0000` will also be replaced by `U+FFFD`.
+[十进制数字字符引用](@)由 `&#` + 1-–7 个阿拉伯数字 + `;` 组成。数字字符引用被解析为相应的 Unicode 字符。无效的 Unicode 码点将替换为 REPLACEMENT CHARACTER（`U+FFFD`）。出于安全考虑，码点 `U+0000` 也替换为 `U+FFFD`。
 
 ```````````````````````````````` example
 &#35; &#1234; &#992; &#0;
@@ -631,11 +611,7 @@ the code point `U+0000` will also be replaced by `U+FFFD`.
 ````````````````````````````````
 
 
-[Hexadecimal numeric character
-references](@) consist of `&#` +
-either `X` or `x` + a string of 1-6 hexadecimal digits + `;`.
-They too are parsed as the corresponding Unicode character (this
-time specified with a hexadecimal numeral instead of decimal).
+[十六进制数字字符引用](@)由 `&#` + `X` 或 `x` + 1-6 个十六进制数字 + `;` 组成。它们也被解析为相应的 Unicode 字符（这次使用十六进制数字而不是十进制数字）。
 
 ```````````````````````````````` example
 &#X22; &#XD06; &#xcab;
@@ -644,7 +620,7 @@ time specified with a hexadecimal numeral instead of decimal).
 ````````````````````````````````
 
 
-Here are some nonentities:
+以下是一些非实体：
 
 ```````````````````````````````` example
 &nbsp &x; &#; &#x;
@@ -659,9 +635,7 @@ Here are some nonentities:
 ````````````````````````````````
 
 
-Although HTML5 does accept some entity references
-without a trailing semicolon (such as `&copy`), these are not
-recognized here, because it makes the grammar too ambiguous:
+尽管 HTML5 确实接受一些没有结尾分号的实体引用（例如 `&copy`），但这些引用在这里是不会被识别的，因为这会使语法过于模糊：
 
 ```````````````````````````````` example
 &copy
@@ -670,8 +644,7 @@ recognized here, because it makes the grammar too ambiguous:
 ````````````````````````````````
 
 
-Strings that are not on the list of HTML5 named entities are not
-recognized as entity references either:
+不在 HTML5 命名实体列表中的字符串也不会被识别为实体引用：
 
 ```````````````````````````````` example
 &MadeUpEntity;
@@ -680,9 +653,7 @@ recognized as entity references either:
 ````````````````````````````````
 
 
-Entity and numeric character references are recognized in any
-context besides code spans or code blocks, including
-URLs, [link titles], and [fenced code block][] [info strings]:
+除了行内代码或代码块之外，实体和数字字符引用在任何上下文中都可以被识别，包括 URL、[链接标题]以及[围栏代码块][] [信息字符串]：
 
 ```````````````````````````````` example
 <a href="&ouml;&ouml;.html">
@@ -717,8 +688,7 @@ foo
 ````````````````````````````````
 
 
-Entity and numeric character references are treated as literal
-text in code spans and code blocks:
+在行内代码和代码块中的实体和数字字符引用被视为普通文本：
 
 ```````````````````````````````` example
 `f&ouml;&ouml;`
@@ -735,9 +705,7 @@ text in code spans and code blocks:
 ````````````````````````````````
 
 
-Entity and numeric character references cannot be used
-in place of symbols indicating structure in CommonMark
-documents.
+实体和数字字符引用不能替代 CommonMark 文档中指示结构的符号。
 
 ```````````````````````````````` example
 &#42;foo&#42;
