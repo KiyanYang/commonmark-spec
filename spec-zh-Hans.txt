@@ -776,15 +776,11 @@ bar</p>
 
 # 叶子块
 
-This section describes the different kinds of leaf block that make up a
-Markdown document.
+本节介绍组成 Markdown 文档的不同类型的叶子块。
 
 ## 主题转换
 
-A line consisting of optionally up to three spaces of indentation, followed by a
-sequence of three or more matching `-`, `_`, or `*` characters, each followed
-optionally by any number of spaces or tabs, forms a
-[thematic break](@).
+由最多三个可选的缩进空格所组成的行，其缩进后跟着三个或更多匹配的 `-`、`_` 或 `*` 字符序列，每个字符后跟着任意数量的空格或制表符，该行构成一个[主题转换](@)。
 
 ```````````````````````````````` example
 ***
@@ -797,7 +793,7 @@ ___
 ````````````````````````````````
 
 
-Wrong characters:
+字符错误：
 
 ```````````````````````````````` example
 +++
@@ -813,7 +809,7 @@ Wrong characters:
 ````````````````````````````````
 
 
-Not enough characters:
+字符不足：
 
 ```````````````````````````````` example
 --
@@ -826,7 +822,7 @@ __</p>
 ````````````````````````````````
 
 
-Up to three spaces of indentation are allowed:
+最多允许三个缩进空格：
 
 ```````````````````````````````` example
  ***
@@ -839,7 +835,7 @@ Up to three spaces of indentation are allowed:
 ````````````````````````````````
 
 
-Four spaces of indentation is too many:
+四个缩进空格太多了:
 
 ```````````````````````````````` example
     ***
@@ -858,7 +854,7 @@ Foo
 ````````````````````````````````
 
 
-More than three characters may be used:
+可以使用三个以上的字符：
 
 ```````````````````````````````` example
 _____________________________________
@@ -867,7 +863,7 @@ _____________________________________
 ````````````````````````````````
 
 
-Spaces and tabs are allowed between the characters:
+字符之间允许有空格和制表符：
 
 ```````````````````````````````` example
  - - -
@@ -890,7 +886,7 @@ Spaces and tabs are allowed between the characters:
 ````````````````````````````````
 
 
-Spaces and tabs are allowed at the end:
+末尾允许有空格和制表符：
 
 ```````````````````````````````` example
 - - - -
@@ -899,7 +895,7 @@ Spaces and tabs are allowed at the end:
 ````````````````````````````````
 
 
-However, no other characters may occur in the line:
+但是，行中不能出现其他字符：
 
 ```````````````````````````````` example
 _ _ _ _ a
@@ -914,8 +910,7 @@ a------
 ````````````````````````````````
 
 
-It is required that all of the characters other than spaces or tabs be the same.
-So, this is not a thematic break:
+除空格或制表符外，所有字符都必须相同。因此，这不是一个主题转换：
 
 ```````````````````````````````` example
  *-*
@@ -924,7 +919,7 @@ So, this is not a thematic break:
 ````````````````````````````````
 
 
-Thematic breaks do not need blank lines before or after:
+主题转换前后不需要空行：
 
 ```````````````````````````````` example
 - foo
@@ -941,7 +936,7 @@ Thematic breaks do not need blank lines before or after:
 ````````````````````````````````
 
 
-Thematic breaks can interrupt a paragraph:
+主题转换可以打断一个段落：
 
 ```````````````````````````````` example
 Foo
@@ -954,11 +949,7 @@ bar
 ````````````````````````````````
 
 
-If a line of dashes that meets the above conditions for being a
-thematic break could also be interpreted as the underline of a [setext
-heading], the interpretation as a
-[setext heading] takes precedence. Thus, for example,
-this is a setext heading, not a paragraph followed by a thematic break:
+如果一行连接号符合上述条件，可以构成主题转换，但也可以解释为 [setext 标题]的下划线，则会优先解释为 [setext 标题]。那么比如说，这是一个 [setext 标题]，而不是一个后面跟着主题转换的段落：
 
 ```````````````````````````````` example
 Foo
@@ -970,8 +961,7 @@ bar
 ````````````````````````````````
 
 
-When both a thematic break and a list item are possible
-interpretations of a line, the thematic break takes precedence:
+当主题转换和列表项都能对一行进行解释时，主题转换优先：
 
 ```````````````````````````````` example
 * Foo
@@ -988,7 +978,7 @@ interpretations of a line, the thematic break takes precedence:
 ````````````````````````````````
 
 
-If you want a thematic break in a list item, use a different bullet:
+如果要在列表项中使用主题转换，那么请使用其他标记：
 
 ```````````````````````````````` example
 - Foo
