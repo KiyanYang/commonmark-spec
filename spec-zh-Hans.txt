@@ -442,8 +442,7 @@ bar
 
 ## 不安全字符
 
-For security reasons, the Unicode character `U+0000` must be replaced
-with the REPLACEMENT CHARACTER (`U+FFFD`).
+出于安全考虑，Unicode 字符 `U+0000` 必须替换为 REPLACEMENT CHARACTER（`U+FFFD`）。
 
 
 ## 反斜杠转义
