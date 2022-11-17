@@ -291,55 +291,33 @@ In the examples, the `→` character is used to represent tabs.
 
 ## 字符与行
 
-Any sequence of [characters] is a valid CommonMark
-document.
+任何[字符]序列都是有效的 CommonMark 文档。
 
-A [character](@) is a Unicode code point.  Although some
-code points (for example, combining accents) do not correspond to
-characters in an intuitive sense, all code points count as characters
-for purposes of this spec.
+[字符](@)是 Unicode 码位。尽管一些码位（例如，重音标记）在直观意义上与字符不对应，但在本规范中，所有码位都算作字符。
 
-This spec does not specify an encoding; it thinks of lines as composed
-of [characters] rather than bytes.  A conforming parser may be limited
-to a certain encoding.
+本规范未指定编码；认为行是由[字符]而不是字节组成的。合规的解析器可能仅限于某个编码。
 
-A [line](@) is a sequence of zero or more [characters]
-other than line feed (`U+000A`) or carriage return (`U+000D`),
-followed by a [line ending] or by the end of file.
+[行](@)是除换行（`U+000A`）或回车（`U+0000D`）之外的零个或多个[字符]的序列，后跟[行尾]或文件末尾。
 
-A [line ending](@) is a line feed (`U+000A`), a carriage return
-(`U+000D`) not followed by a line feed, or a carriage return and a
-following line feed.
+[行尾](@)即换行（`U+000A`），或没有尾随换行的回车（`U+000D`），或尾随换行的回车。
 
-A line containing no characters, or a line containing only spaces
-(`U+0020`) or tabs (`U+0009`), is called a [blank line](@).
+不包含字符的行或者仅包含空格（`U+0020`）或制表符（`U+0009`）的行被称为[空行](@)。
 
-The following definitions of character classes will be used in this spec:
+本规范将使用以下字符类的定义：
 
-A [Unicode whitespace character](@) is
-any code point in the Unicode `Zs` general category, or a tab (`U+0009`),
-line feed (`U+000A`), form feed (`U+000C`), or carriage return (`U+000D`).
+[Unicode 空白字符](@)是位于 Unicode `Zs` 通用类别的任意码位，或是制表符（`U+0009`）、换行（`U+000A`）、换页（`U+000C`）、回车（`U+000D`）。
 
-[Unicode whitespace](@) is a sequence of one or more
-[Unicode whitespace characters].
+[Unicode 空白](@)是一个或多个[Unicode 空白字符]的序列。
 
-A [tab](@) is `U+0009`.
+[制表符](@)是 `U+0009`。
 
-A [space](@) is `U+0020`.
+[空格](@)是 `U+0020`。
 
-An [ASCII control character](@) is a character between `U+0000–1F` (both
-including) or `U+007F`.
+[ASCII 控制字符](@)是介于 `U+0000–1F` 之间（包含两者）的字符或 `U+007F`。
 
-An [ASCII punctuation character](@)
-is `!`, `"`, `#`, `$`, `%`, `&`, `'`, `(`, `)`,
-`*`, `+`, `,`, `-`, `.`, `/` (U+0021–2F),
-`:`, `;`, `<`, `=`, `>`, `?`, `@` (U+003A–0040),
-`[`, `\`, `]`, `^`, `_`, `` ` `` (U+005B–0060),
-`{`, `|`, `}`, or `~` (U+007B–007E).
+[ASCII 标点字符](@)是 `!`，`"`，`#`，`$`，`%`，`&`，`'`，`(`，`)`，`*`，`+`，`,`，`-`，`.`，`/`（U+0021–2F），`:`，`;`，`<`，`=`，`>`，`?`，`@`（U+003A–0040），`[`，`\`，`]`，`^`，`_`，`` ` ``（U+005B–0060），`{`，`|`，`}`，或 `~`（U+007B–007E）。
 
-A [Unicode punctuation character](@) is an [ASCII
-punctuation character] or anything in
-the general Unicode categories  `Pc`, `Pd`, `Pe`, `Pf`, `Pi`, `Po`, or `Ps`.
+[Unicode 标点字符](@)是 [ASCII 标点字符]或者位于通用 Unicode 类别 `Pc`，`Pd`，`Pe`，`Pf`，`Pi`，`Po`，或 `Ps` 内的字符。
 
 ## 制表符
 
