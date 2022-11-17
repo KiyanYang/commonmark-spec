@@ -751,18 +751,11 @@ bar</p>
 
 # 区块与内联
 
-We can think of a document as a sequence of
-[blocks](@)---structural elements like paragraphs, block
-quotations, lists, headings, rules, and code blocks.  Some blocks (like
-block quotes and list items) contain other blocks; others (like
-headings and paragraphs) contain [inline](@) content---text,
-links, emphasized text, images, code spans, and so on.
+我们可以把一个文档看作是一系列[区块](@)——结构元素，如段落、区块引用、列表、标题、规则和代码块。一些区块（如区块引用和列表项）包含其他块；其它的则包含[内联](@)内容——文本、链接、强调文本、图片、行内代码等。
 
 ## 优先级
 
-Indicators of block structure always take precedence over indicators
-of inline structure.  So, for example, the following is a list with
-two items, not a list with one item containing a code span:
+区块结构的指示符总是优先于内联结构的指示符。那么比如说，以下是一个包含两个项的列表，而不是一个只有一个项（其包含行内代码）的列表：
 
 ```````````````````````````````` example
 - `one
@@ -775,21 +768,11 @@ two items, not a list with one item containing a code span:
 ````````````````````````````````
 
 
-This means that parsing can proceed in two steps:  first, the block
-structure of the document can be discerned; second, text lines inside
-paragraphs, headings, and other block constructs can be parsed for inline
-structure.  The second step requires information about link reference
-definitions that will be available only at the end of the first
-step.  Note that the first step requires processing lines in sequence,
-but the second can be parallelized, since the inline parsing of
-one block element does not affect the inline parsing of any other.
+这意味着解析可以分两步进行：首先，识别文档的区块结构；其次，将段落、标题和其他区块结构中的文本行解析为内联结构。第二步需要有关链接引用定义的信息，这些信息只有在第一步结束时才可用。注意，第一步需要按顺序处理行，但第二步可以并行处理，因为一个区块元素的内联解析不会影响其他区块元素的内联解析。
 
 ## 容器块与叶子块
 
-We can divide blocks into two types:
-[container blocks](#container-blocks),
-which can contain other blocks, and [leaf blocks](#leaf-blocks),
-which cannot.
+我们把区块分为两种类型：[容器块](#容器块)（可以包含其他区块）和[叶子块](#叶子块)（不能包含其他区块）。
 
 # 叶子块
 
