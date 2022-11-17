@@ -447,7 +447,7 @@ bar
 
 ## 反斜杠转义
 
-Any ASCII punctuation character may be backslash-escaped:
+任何 ASCII 标点字符都可以被反斜杠转义：
 
 ```````````````````````````````` example
 \!\"\#\$\%\&\'\(\)\*\+\,\-\.\/\:\;\<\=\>\?\@\[\\\]\^\_\`\{\|\}\~
@@ -456,8 +456,7 @@ Any ASCII punctuation character may be backslash-escaped:
 ````````````````````````````````
 
 
-Backslashes before other characters are treated as literal
-backslashes:
+其他字符之前的反斜杠被视为字面意义上的反斜杠：
 
 ```````````````````````````````` example
 \→\A\a\ \3\φ\«
@@ -466,8 +465,7 @@ backslashes:
 ````````````````````````````````
 
 
-Escaped characters are treated as regular characters and do
-not have their usual Markdown meanings:
+被转义的字符被视为常规字符，不具有通常的 Markdown 含义：
 
 ```````````````````````````````` example
 \*not emphasized*
@@ -492,7 +490,7 @@ not have their usual Markdown meanings:
 ````````````````````````````````
 
 
-If a backslash is itself escaped, the following character is not:
+如果反斜杠自身被转义，那么跟着的字符就不再被转义：
 
 ```````````````````````````````` example
 \\*emphasis*
@@ -501,7 +499,7 @@ If a backslash is itself escaped, the following character is not:
 ````````````````````````````````
 
 
-A backslash at the end of the line is a [hard line break]:
+行尾的反斜杠是[硬换行]：
 
 ```````````````````````````````` example
 foo\
@@ -512,8 +510,7 @@ bar</p>
 ````````````````````````````````
 
 
-Backslash escapes do not work in code blocks, code spans, autolinks, or
-raw HTML:
+反斜杠转义不适用于代码块、行内代码、自动链接或原生 HTML：
 
 ```````````````````````````````` example
 `` \[\` ``
@@ -554,8 +551,7 @@ raw HTML:
 ````````````````````````````````
 
 
-But they work in all other contexts, including URLs and link titles,
-link references, and [info strings] in [fenced code blocks]:
+但它们可以在所有其他上下文中工作，包括 URL 和链接标题、链接引用以及[围栏代码块]中的[信息字符串]：
 
 ```````````````````````````````` example
 [foo](/bar\* "ti\*tle")
