@@ -995,19 +995,9 @@ bar
 
 ## ATX 标题
 
-An [ATX heading](@)
-consists of a string of characters, parsed as inline content, between an
-opening sequence of 1--6 unescaped `#` characters and an optional
-closing sequence of any number of unescaped `#` characters.
-The opening sequence of `#` characters must be followed by spaces or tabs, or
-by the end of line. The optional closing sequence of `#`s must be preceded by
-spaces or tabs and may be followed by spaces or tabs only.  The opening
-`#` character may be preceded by up to three spaces of indentation.  The raw
-contents of the heading are stripped of leading and trailing space or tabs
-before being parsed as inline content.  The heading level is equal to the number
-of `#` characters in the opening sequence.
+[ATX 标题](@)由一串字符组成，这串字符被解析为内联内容，并且位于 1--6 个未转义 `#` 字符的起始序列和任意数量的未转义 `#` 字符的可选结尾序列之间。`#` 字符的起始序列后面必须跟着空格或制表符，或者行尾。`#` 字符的可选结尾序列前面必须有空格或制表符，后面只能有空格或制表符。起始的 `#` 字符前面最多可以有三个空格缩进。在标题的原始内容被解析为内联内容之前，会去除标题前导和尾随的空格或制表符。标题级别等于起始序列中 `#` 字符的数量。
 
-Simple headings:
+简单标题：
 
 ```````````````````````````````` example
 # foo
@@ -1026,7 +1016,7 @@ Simple headings:
 ````````````````````````````````
 
 
-More than six `#` characters is not a heading:
+超过六个 `#` 字符的不是标题：
 
 ```````````````````````````````` example
 ####### foo
@@ -1035,13 +1025,7 @@ More than six `#` characters is not a heading:
 ````````````````````````````````
 
 
-At least one space or tab is required between the `#` characters and the
-heading's contents, unless the heading is empty.  Note that many
-implementations currently do not require the space.  However, the
-space was required by the
-[original ATX implementation](http://www.aaronsw.com/2002/atx/atx.py),
-and it helps prevent things like the following from being parsed as
-headings:
+除非标题为空，否则在 `#` 字符和标题内容之间至少需要一个空格或制表符。注意，许多实现目前不需要空格。但是，[原始 ATX 实现](http://www.aaronsw.com/2002/atx/atx.py)需要空格，并且它有助于防止以下内容作为标题解析：
 
 ```````````````````````````````` example
 #5 bolt
@@ -1053,7 +1037,7 @@ headings:
 ````````````````````````````````
 
 
-This is not a heading, because the first `#` is escaped:
+这不是标题，因为第一个 `#` 被转义：
 
 ```````````````````````````````` example
 \## foo
@@ -1062,7 +1046,7 @@ This is not a heading, because the first `#` is escaped:
 ````````````````````````````````
 
 
-Contents are parsed as inlines:
+内容被解析为内联：
 
 ```````````````````````````````` example
 # foo *bar* \*baz\*
@@ -1071,7 +1055,7 @@ Contents are parsed as inlines:
 ````````````````````````````````
 
 
-Leading and trailing spaces or tabs are ignored in parsing inline content:
+在解析内联内容时，忽略前导和尾随的空格或制表符：
 
 ```````````````````````````````` example
 #                  foo
@@ -1080,7 +1064,7 @@ Leading and trailing spaces or tabs are ignored in parsing inline content:
 ````````````````````````````````
 
 
-Up to three spaces of indentation are allowed:
+最多允许三个空格缩进：
 
 ```````````````````````````````` example
  ### foo
@@ -1093,7 +1077,7 @@ Up to three spaces of indentation are allowed:
 ````````````````````````````````
 
 
-Four spaces of indentation is too many:
+四个空格缩进太多了:
 
 ```````````````````````````````` example
     # foo
@@ -1112,7 +1096,7 @@ foo
 ````````````````````````````````
 
 
-A closing sequence of `#` characters is optional:
+`#` 字符结尾序列是可选的：
 
 ```````````````````````````````` example
 ## foo ##
@@ -1123,7 +1107,7 @@ A closing sequence of `#` characters is optional:
 ````````````````````````````````
 
 
-It need not be the same length as the opening sequence:
+它不需要和起始序列的长度相同：
 
 ```````````````````````````````` example
 # foo ##################################
@@ -1134,7 +1118,7 @@ It need not be the same length as the opening sequence:
 ````````````````````````````````
 
 
-Spaces or tabs are allowed after the closing sequence:
+结尾序列后面允许使用空格或制表符：
 
 ```````````````````````````````` example
 ### foo ###
@@ -1143,9 +1127,7 @@ Spaces or tabs are allowed after the closing sequence:
 ````````````````````````````````
 
 
-A sequence of `#` characters with anything but spaces or tabs following it
-is not a closing sequence, but counts as part of the contents of the
-heading:
+后面跟着除空格或制表符之外字符的 `#` 字符序列不是结尾序列，而是作为标题内容的一部分:
 
 ```````````````````````````````` example
 ### foo ### b
@@ -1154,7 +1136,7 @@ heading:
 ````````````````````````````````
 
 
-The closing sequence must be preceded by a space or tab:
+结尾序列前面必须有空格或制表符：
 
 ```````````````````````````````` example
 # foo#
@@ -1163,8 +1145,7 @@ The closing sequence must be preceded by a space or tab:
 ````````````````````````````````
 
 
-Backslash-escaped `#` characters do not count as part
-of the closing sequence:
+反斜杠转义的 `#` 字符不算作结尾序列的一部分：
 
 ```````````````````````````````` example
 ### foo \###
@@ -1177,8 +1158,7 @@ of the closing sequence:
 ````````````````````````````````
 
 
-ATX headings need not be separated from surrounding content by blank
-lines, and they can interrupt paragraphs:
+ATX 标题不需要用空行与周围内容隔开，它们可以打断段落：
 
 ```````````````````````````````` example
 ****
@@ -1202,7 +1182,7 @@ Bar foo
 ````````````````````````````````
 
 
-ATX headings can be empty:
+ATX 标题可以是空的：
 
 ```````````````````````````````` example
 ##
