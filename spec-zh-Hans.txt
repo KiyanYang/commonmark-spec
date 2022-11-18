@@ -1576,18 +1576,9 @@ baz</p>
 
 ## 缩进代码块
 
-An [indented code block](@) is composed of one or more
-[indented chunks] separated by blank lines.
-An [indented chunk](@) is a sequence of non-blank lines,
-each preceded by four or more spaces of indentation. The contents of the code
-block are the literal contents of the lines, including trailing
-[line endings], minus four spaces of indentation.
-An indented code block has no [info string].
+[缩进代码块](@)由一个或多个由空行分隔的[缩进块]组成。[缩进块](@)是非空行组成的序列，每行前面有四个或更多的空格缩进。代码块的内容是这些行的字面内容（包括末尾的[行尾]）减去四个空格缩进。缩进代码块没有[信息字符串]。
 
-An indented code block cannot interrupt a paragraph, so there must be
-a blank line between a paragraph and a following indented code block.
-(A blank line is not needed, however, between a code block and a following
-paragraph.)
+缩进代码块不能中断段落，因此段落和后面的缩进代码块之间必须有空行。（但是，在代码块和下个段落之间不需要空行。）
 
 ```````````````````````````````` example
     a simple
@@ -1599,9 +1590,7 @@ paragraph.)
 ````````````````````````````````
 
 
-If there is any ambiguity between an interpretation of indentation
-as a code block and as indicating that material belongs to a [list
-item][list items], the list item interpretation takes precedence:
+如果将缩进解释为代码块与[列表项]内容之间存在任何歧义，则列表项解释优先：
 
 ```````````````````````````````` example
   - foo
@@ -1634,8 +1623,7 @@ item][list items], the list item interpretation takes precedence:
 
 
 
-The contents of a code block are literal text, and do not get parsed
-as Markdown:
+代码块的内容是字面文本，并且不会作为 Markdown 被解析：
 
 ```````````````````````````````` example
     <a/>
@@ -1651,7 +1639,7 @@ as Markdown:
 ````````````````````````````````
 
 
-Here we have three chunks separated by blank lines:
+这里我们有三个由空行分隔的块：
 
 ```````````````````````````````` example
     chunk1
@@ -1673,8 +1661,7 @@ chunk3
 ````````````````````````````````
 
 
-Any initial spaces or tabs beyond four spaces of indentation will be included in
-the content, even in interior blank lines:
+任何超过四个空格缩进的起始空格或制表符都将包含在内容中，即使是在内部空行中：
 
 ```````````````````````````````` example
     chunk1
@@ -1688,8 +1675,7 @@ the content, even in interior blank lines:
 ````````````````````````````````
 
 
-An indented code block cannot interrupt a paragraph.  (This
-allows hanging indents and the like.)
+缩进的代码块不能中断段落。（这允许悬挂缩进等格式。）
 
 ```````````````````````````````` example
 Foo
@@ -1701,9 +1687,7 @@ bar</p>
 ````````````````````````````````
 
 
-However, any non-blank line with fewer than four spaces of indentation ends
-the code block immediately.  So a paragraph may occur immediately
-after indented code:
+但是，任何空格缩进少于四个的非空行都会立即结束代码块。因此，缩进代码之后可能立即出现一个段落：
 
 ```````````````````````````````` example
     foo
@@ -1715,8 +1699,7 @@ bar
 ````````````````````````````````
 
 
-And indented code can occur immediately before and after other kinds of
-blocks:
+缩进代码可以立即出现在其他类型的区块之前和之后：
 
 ```````````````````````````````` example
 # Heading
@@ -1736,7 +1719,7 @@ Heading
 ````````````````````````````````
 
 
-The first line can be preceded by more than four spaces of indentation:
+第一行前面可以有四个以上的空格缩进：
 
 ```````````````````````````````` example
         foo
@@ -1748,8 +1731,7 @@ bar
 ````````````````````````````````
 
 
-Blank lines preceding or following an indented code block
-are not included in it:
+缩进代码块之前或之后的空行不包含在内：
 
 ```````````````````````````````` example
 
@@ -1763,7 +1745,7 @@ are not included in it:
 ````````````````````````````````
 
 
-Trailing spaces or tabs are included in the code block's content:
+代码块的内容中包含尾随空格或制表符：
 
 ```````````````````````````````` example
     foo
