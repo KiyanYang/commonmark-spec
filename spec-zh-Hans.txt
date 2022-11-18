@@ -1197,32 +1197,15 @@ ATX 标题可以是空的：
 
 ## Setext 标题
 
-A [setext heading](@) consists of one or more
-lines of text, not interrupted by a blank line, of which the first line does not
-have more than 3 spaces of indentation, followed by
-a [setext heading underline].  The lines of text must be such
-that, were they not followed by the setext heading underline,
-they would be interpreted as a paragraph:  they cannot be
-interpretable as a [code fence], [ATX heading][ATX headings],
-[block quote][block quotes], [thematic break][thematic breaks],
-[list item][list items], or [HTML block][HTML blocks].
+[setext 标题](@)由一行或多行文本组成，且不被空行打断，其中第一行不超过 3 个空格缩进，后跟 [setext 标题下划线]。文本行的要求是这样的，如果它们后面没有设置文本标题下划线，那么它们将被解释成一个段落，而不是被解释成一个[代码围栏]、[ATX 标题]、[区块引用]、[主题转换]、[列表项]或 [HTML 块]。
 
-A [setext heading underline](@) is a sequence of
-`=` characters or a sequence of `-` characters, with no more than 3
-spaces of indentation and any number of trailing spaces or tabs.
+[setext 标题下划线](@)是一个 `=` 字符序列或 `-` 字符序列，该字符序列可以有不超过 3 个的缩进空格和任意数量的尾随空格或制表符。
 
-The heading is a level 1 heading if `=` characters are used in
-the [setext heading underline], and a level 2 heading if `-`
-characters are used.  The contents of the heading are the result
-of parsing the preceding lines of text as CommonMark inline
-content.
+如果在 [setext 标题下划线]中使用 `=` 字符，则标题为 1 级标题，如果使用 `-` 字符，则为 2 级标题。标题的内容是将前面的文本行解析为 CommonMark 内联内容的结果。
 
-In general, a setext heading need not be preceded or followed by a
-blank line.  However, it cannot interrupt a paragraph, so when a
-setext heading comes after a paragraph, a blank line is needed between
-them.
+一般来说，setext 标题的前面或后面不需要有一个空行。但是，它不能中断一个段落，所以当一个 setext 标题出现在一个段落之后时，它们之间需要一个空行。
 
-Simple examples:
+简单例子：
 
 ```````````````````````````````` example
 Foo *bar*
@@ -1236,7 +1219,7 @@ Foo *bar*
 ````````````````````````````````
 
 
-The content of the header may span more than one line:
+标题的内容可以跨越多行：
 
 ```````````````````````````````` example
 Foo *bar
@@ -1247,10 +1230,7 @@ baz*
 baz</em></h1>
 ````````````````````````````````
 
-The contents are the result of parsing the headings's raw
-content as inlines.  The heading's raw content is formed by
-concatenating the lines and removing initial and final
-spaces or tabs.
+内容是将标题的原始内容解析为内联的结果。标题的原始内容是通过连接行并删除开头和结尾的空格或制表符而组成的。
 
 ```````````````````````````````` example
   Foo *bar
@@ -1262,7 +1242,7 @@ baz</em></h1>
 ````````````````````````````````
 
 
-The underlining can be any length:
+下划线可以是任意长度：
 
 ```````````````````````````````` example
 Foo
@@ -1276,8 +1256,7 @@ Foo
 ````````````````````````````````
 
 
-The heading content can be preceded by up to three spaces of indentation, and
-need not line up with the underlining:
+标题内容前面最多可以有三个空格缩进，且不需要与下划线对齐：
 
 ```````````````````````````````` example
    Foo
@@ -1295,7 +1274,7 @@ need not line up with the underlining:
 ````````````````````````````````
 
 
-Four spaces of indentation is too many:
+四个空格缩进太多了:
 
 ```````````````````````````````` example
     Foo
@@ -1313,8 +1292,7 @@ Foo
 ````````````````````````````````
 
 
-The setext heading underline can be preceded by up to three spaces of
-indentation, and may have trailing spaces or tabs:
+setext 标题下划线前面最多可以有三个空格缩进，且可以有尾随的空格或制表符：
 
 ```````````````````````````````` example
 Foo
@@ -1324,7 +1302,7 @@ Foo
 ````````````````````````````````
 
 
-Four spaces of indentation is too many:
+四个空格缩进太多了:
 
 ```````````````````````````````` example
 Foo
@@ -1335,7 +1313,7 @@ Foo
 ````````````````````````````````
 
 
-The setext heading underline cannot contain internal spaces or tabs:
+setext 标题下划线不能包含内部的空格或制表符：
 
 ```````````````````````````````` example
 Foo
@@ -1351,7 +1329,7 @@ Foo
 ````````````````````````````````
 
 
-Trailing spaces or tabs in the content line do not cause a hard line break:
+内容行中的尾随空格或制表符不会导致硬换行：
 
 ```````````````````````````````` example
 Foo
@@ -1361,7 +1339,7 @@ Foo
 ````````````````````````````````
 
 
-Nor does a backslash at the end:
+末尾的反斜杠也不会：
 
 ```````````````````````````````` example
 Foo\
@@ -1371,8 +1349,7 @@ Foo\
 ````````````````````````````````
 
 
-Since indicators of block structure take precedence over
-indicators of inline structure, the following are setext headings:
+由于块结构的指示符优先于内联结构的指示符，因此以下是 setext 标题：
 
 ```````````````````````````````` example
 `Foo
@@ -1390,8 +1367,7 @@ of dashes"/>
 ````````````````````````````````
 
 
-The setext heading underline cannot be a [lazy continuation
-line] in a list item or block quote:
+在列表项或区块引用中，setext 标题下划线不能是[懒惰延续行]：
 
 ```````````````````````````````` example
 > Foo
@@ -1428,9 +1404,7 @@ bar
 ````````````````````````````````
 
 
-A blank line is needed between a paragraph and a following
-setext heading, since otherwise the paragraph becomes part
-of the heading's content:
+段落与其后的 setext 标题之间需要空行，否则该段落将成为标题内容的一部分：
 
 ```````````````````````````````` example
 Foo
@@ -1442,8 +1416,7 @@ Bar</h2>
 ````````````````````````````````
 
 
-But in general a blank line is not required before or after
-setext headings:
+但通常情况下，setext 标题之前或之后不需要空行：
 
 ```````````````````````````````` example
 ---
@@ -1460,7 +1433,7 @@ Baz
 ````````````````````````````````
 
 
-Setext headings cannot be empty:
+setext 标题不能为空：
 
 ```````````````````````````````` example
 
@@ -1470,9 +1443,7 @@ Setext headings cannot be empty:
 ````````````````````````````````
 
 
-Setext heading text lines must not be interpretable as block
-constructs other than paragraphs.  So, the line of dashes
-in these examples gets interpreted as a thematic break:
+setext 标题文本行不能解释为段落以外的区块结构。因此，这些示例中的由连接号组成的行被解释为主题转换：
 
 ```````````````````````````````` example
 ---
@@ -1515,8 +1486,7 @@ in these examples gets interpreted as a thematic break:
 ````````````````````````````````
 
 
-If you want a heading with `> foo` as its literal text, you can
-use backslash escapes:
+如果你想让标题的文本是 `> foo`，可以使用反斜杠转义：
 
 ```````````````````````````````` example
 \> foo
@@ -1526,9 +1496,7 @@ use backslash escapes:
 ````````````````````````````````
 
 
-**Compatibility note:**  Most existing Markdown implementations
-do not allow the text of setext headings to span multiple lines.
-But there is no consensus about how to interpret
+**兼容性说明：**  大多数现有的 Markdown 实现不允许 setext 标题的文本跨越多行。但对于如何解释下面的内容，还没有达成共识
 
 ``` markdown
 Foo
@@ -1537,17 +1505,14 @@ bar
 baz
 ```
 
-One can find four different interpretations:
+人们可以找到四种不同的解释：
 
-1. paragraph "Foo", heading "bar", paragraph "baz"
-2. paragraph "Foo bar", thematic break, paragraph "baz"
-3. paragraph "Foo bar --- baz"
-4. heading "Foo bar", paragraph "baz"
+1. 段落「Foo」，标题「bar」，段落「baz」
+2. 段落「Foo bar」，主题转换，段落「baz」
+3. 段落「Foo bar --- baz」
+4. 标题「Foo bar」，段落「baz」
 
-We find interpretation 4 most natural, and interpretation 4
-increases the expressive power of CommonMark, by allowing
-multiline headings.  Authors who want interpretation 1 can
-put a blank line after the first paragraph:
+我们发现解释 4 是最自然的，并且解释 4 通过允许多行标题增加了 CommonMark 的表达能力。想要解释 1 的作者可以在第一段后面加上一行空白：
 
 ```````````````````````````````` example
 Foo
@@ -1562,8 +1527,7 @@ baz
 ````````````````````````````````
 
 
-Authors who want interpretation 2 can put blank lines around
-the thematic break,
+想要解释 2 的作者可以在主题转换处加上空白行，
 
 ```````````````````````````````` example
 Foo
@@ -1580,8 +1544,7 @@ bar</p>
 ````````````````````````````````
 
 
-or use a thematic break that cannot count as a [setext heading
-underline], such as
+或使用不能用作 [setext 标题下划线]的主题转换，比如
 
 ```````````````````````````````` example
 Foo
@@ -1596,7 +1559,7 @@ bar</p>
 ````````````````````````````````
 
 
-Authors who want interpretation 3 can use backslash escapes:
+想要解释 3 的作者可以使用反斜杠转义：
 
 ```````````````````````````````` example
 Foo
